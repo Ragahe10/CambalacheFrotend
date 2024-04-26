@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.navbar .nav-link {
+    color: white;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+
+.custom-button {
+    background-color: rgb(54, 128, 197);
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    height: 40px;
+
+}
+
+.custom-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.imagen-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+
+}
+
+#section {
+    gap: 150px;
+    margin-top: 20px;
+}
+
+.input {
+    width: 250px;
+    height: 40px;
+}
+
+.navbar-collapse.collapse {
+    justify-content: center;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.fixed-top {
+    margin-top: -10px;
+}
+
