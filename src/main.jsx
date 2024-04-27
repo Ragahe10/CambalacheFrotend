@@ -9,11 +9,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Header />
 =======
 import App from './App.jsx'
-import './index.css'
-{
-  /* The following line can be included in your src/index.js or App.js file */
-}
+import './css/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TypesExample from './prueba.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
