@@ -27,7 +27,7 @@ const NavbarMenu = ({ LogOut, auth }) => {
                     <i className="bi bi-cart2"></i> Carrito
                 </NavLink>
               </li>
-              {auth && (
+              {(JSON.parse(sessionStorage.getItem('rol')) === "ADMIN_ROLE") && (
                 <li>
                   <NavLink className='nav-link' to='/Administracion'><i className="bi bi-gear-fill"></i> Administracion</NavLink>
                 </li>
@@ -37,7 +37,7 @@ const NavbarMenu = ({ LogOut, auth }) => {
           <Nav>
             {/* <button className='btn btn-outline-light' onClick={() => auth ? logOut() : logIn()}>{auth ? 'Log Out' : 'Log In'}</button> */}
               {auth && (
-                <UsuarioLogueado LogOut={LogOut}/>
+                <UsuarioLogueado LogOut={LogOut} usuario={JSON.parse(sessionStorage.getItem('usuario'))}/>
               )}
           </Nav>
         </Navbar.Collapse>
