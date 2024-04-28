@@ -14,17 +14,22 @@ import Encabezado from './components/Encabezado'
 import authLogin from './helpers/Login'
 
 function App() {
+  //token
   const [token, setToken] = useState('');
+
+  //logueo de usuario
   const [auth, setAuth] = useState(sessionStorage.getItem('usuario')? true : false);
   const LogIn = async (userData) => {
     try{
       const response = await authLogin (userData);
       if(!response.usuario){
-        alert(response.msg);
+        alert(response.msj);
       }else{
         setToken(response.token);
         sessionStorage.setItem('token',JSON.stringify(response.token));
         sessionStorage.setItem('usuario',JSON.stringify(response.usuario.nombre));
+        sessionStorage.setItem('rol',JSON.stringify(response.usuario.rol));
+        sessionStorage.setItem('id',JSON.stringify(response.usuario.uid));
         setAuth(true)
       }
     } catch (error){
@@ -35,6 +40,9 @@ function App() {
     setAuth(false)
     sessionStorage.clear();
   }
+
+  
+
   return (
     <Router>
         <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn}/>

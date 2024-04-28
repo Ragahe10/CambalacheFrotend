@@ -1,6 +1,6 @@
 const url = "https://cambalachebackend.onrender.com/api/usuario";
 
-const authLogin = async (datos) => {
+const UserSignIn = async (datos) => {
     try{
         const response = await fetch(url, {
             method: "POST",
@@ -19,4 +19,4 @@ const authLogin = async (datos) => {
         return {msg: "No se pudo conectar a la base de datos"}
     }
 }
-export default authLogin;
+export default UserSignIn;

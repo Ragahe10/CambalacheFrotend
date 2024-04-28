@@ -23,8 +23,8 @@ const LogueoModal = ({onSubmit , showModal, setShowModal}) => {
   return (
     <>
         <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title className='text-primary text-center'>Iniciar sesión</Modal.Title>
+            <Modal.Header className='bg-primary text-light' closeButton>
+                <Modal.Title>Iniciar sesión</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <Form onSubmit={handleSubmit} autoComplete='off'>
@@ -35,7 +35,7 @@ const LogueoModal = ({onSubmit , showModal, setShowModal}) => {
 
                 <Form.Group controlId="formBasicPassword" className=''>
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" placeholder="Ej: 123456" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    <Form.Control type="password" placeholder="Ej: 123456" value={password} onChange={(e) => setPassword(e.target.value)} minLength={6} required/>
                 </Form.Group>
                 <hr />
                 <Button variant="primary" type="submit" className='w-100'>

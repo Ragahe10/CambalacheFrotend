@@ -3,7 +3,6 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Link } from 'react-router-dom';
 
 function UsuarioLogueado({ LogOut, usuario }) {
-    usuario = "Ramiro"
     return (
         <DropdownButton data-bs-theme="light" id="dropdown-basic-button" title={<span className='fs-5'><i className="bi bi-person-circle"></i> {usuario} </span>}>
             <Link className='SinSubrayado dropdown-item' to="/Usuario">

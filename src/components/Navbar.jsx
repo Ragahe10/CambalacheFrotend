@@ -27,7 +27,7 @@ const NavbarMenu = ({ LogOut, auth }) => {
                     <i className="bi bi-cart2"></i> Carrito
                 </NavLink>
               </li>
-              {auth && (
+              {(JSON.parse(sessionStorage.getItem('rol')) === "ADMIN_ROLE") && (
                 <li>
                   <NavLink className='nav-link' to='/Administracion'><i className="bi bi-gear-fill"></i> Administracion</NavLink>
                 </li>
