@@ -1,8 +1,3 @@
 .SinSubrayado{
     text-decoration: none;
 }
-.vertical-hr {
-    border-left: 1px solid black; /* Establece el estilo de borde izquierdo */
-    height: 22px; /* Establece la altura de la línea vertical */
-    margin: 0 20px; /* Ajusta el margen para separar la línea vertical de otros elementos */
-  }

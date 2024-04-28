@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import '../css/Encabezado.css'
 
 const Encabezado = ({Buscar, auth, LogOut, LogIn, Registrar}) => {
   const [searchInput, setSearchInput] = useState('');
@@ -8,7 +9,7 @@ const Encabezado = ({Buscar, auth, LogOut, LogIn, Registrar}) => {
   };
   return (
     <section className='d-flex flex-wrap wrap justify-content-around align-items-center py-4'>
-        <section className='buscador mb-3 d-flex justify-content-center text-center'>
+        <section className='buscador mb-3 d-flex justify-content-center text-center' width="340px">
         <Form className="d-flex">
             <Form.Control
               type="search"
@@ -24,7 +25,7 @@ const Encabezado = ({Buscar, auth, LogOut, LogIn, Registrar}) => {
         <section className='logo'>
             <img src="/imagenes/logo.png" alt="Imagen logo del negocio" width='340px'/>
         </section>
-        <section className='sesion d-flex flex-row align-items-center'>
+        <section className='sesion d-flex flex-row justify-content-center align-items-center' width="340px">
           <a className='nav-link' onClick={() => auth ? LogOut() : LogIn()}>{auth ? 'Cerrar Sesión' : 'Iniciar Sesión'}</a>
           {!auth && (
            <>
