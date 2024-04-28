@@ -37,7 +37,7 @@ const NavbarMenu = ({ LogOut, auth }) => {
           <Nav>
             {/* <button className='btn btn-outline-light' onClick={() => auth ? logOut() : logIn()}>{auth ? 'Log Out' : 'Log In'}</button> */}
               {auth && (
-                <UsuarioLogueado LogOut={LogOut}/>
+                <UsuarioLogueado LogOut={LogOut} usuario={JSON.parse(sessionStorage.getItem('usuario'))}/>
               )}
           </Nav>
         </Navbar.Collapse>
