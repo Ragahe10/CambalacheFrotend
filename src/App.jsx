@@ -16,14 +16,14 @@ import authLogin from './helpers/Login'
 function App() {
   //token
   const [token, setToken] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   //logueo de usuario
   const [auth, setAuth] = useState(sessionStorage.getItem('usuario')? true : false);
   const LogIn = async (userData) => {
-    try{
       const response = await authLogin (userData);
       if(!response.usuario){
-        alert(response.msj);
+        return (response.msg);
       }else{
         setToken(response.token);
         sessionStorage.setItem('token',JSON.stringify(response.token));
@@ -32,9 +32,6 @@ function App() {
         sessionStorage.setItem('id',JSON.stringify(response.usuario.uid));
         setAuth(true)
       }
-    } catch (error){
-      console.log(error);
-    }
   }
   const logOut = () => {
     setAuth(false)
@@ -45,7 +42,7 @@ function App() {
 
   return (
     <Router>
-        <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn}/>
+        <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
         <NavbarMenu LogOut={logOut} auth={auth}/>
         <Routes>
           <Route path='/Administracion' element={<ProtectedRoutes auth={auth}><Administracion/></ProtectedRoutes>}/>
