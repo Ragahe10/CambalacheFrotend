@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "navbar",
-=======
-  "name": "cambalachefrontend",
->>>>>>> 0ff71c873dbb5da5e2b27bf8f0006a7163ca521a
   "private": true,
   "version": "0.0.0",
   "type": "module",

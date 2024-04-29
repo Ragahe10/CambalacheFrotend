@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-
-
-.navbar .nav-link {
+s .navbar .nav-link {
     color: white;
     margin-right: 50px;
     font-size: 20px;
@@ -14,9 +12,9 @@
 
 
 .custom-button {
-    background-color: rgb(54, 128, 197);
-    border-color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(233, 233, 233);
+    color: rgb(54, 128, 197);
     height: 40px;
 
 }
@@ -34,8 +32,9 @@
 }
 
 #section {
-    gap: 150px;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .input {
@@ -55,4 +54,3 @@
 .fixed-top {
     margin-top: -10px;
 }
-
