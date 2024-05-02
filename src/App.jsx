@@ -54,6 +54,7 @@ function App() {
           <Route path='/Buscar' element={<Venta/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
+        
       </Router>
   )
 }
