@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './css/App.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
+
 import ProtectedRoutes from './routes/ProtectedRoutes'
 import Administracion from './pages/Administracion'
 import Carrito from './pages/Carrito'
@@ -12,6 +14,7 @@ import Error404 from './pages/404'
 import NavbarMenu from './components/Navbar'
 import Encabezado from './components/Encabezado'
 import authLogin from './helpers/Login'
+import InstruccionesPago from './components/instruccionesPago'
 
 function App() {
   //token
@@ -55,6 +58,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/Venta' element={<Venta/>}/>
           <Route path='/Buscar' element={<Venta/>}/>
+          <Route path='/instruccionesPago' element={<InstruccionesPago/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
       </Router>
