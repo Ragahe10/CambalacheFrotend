@@ -62,9 +62,9 @@ function Buscador() {
   }
 
   return (
-    <Container className="fixed-top"  >
-      <Container id='section'>
-        <Form className="d-flex" style={{ marginLeft: '200px' }}>
+    <Container fluid className="fixed-top" style={{ minHeight: '100vh' }}>
+      <Container id='section' className="d-flex justify-content-center align-items-center mt-5">
+        <Form className="d-flex justify-content-center align-items-center">
           <Form.Control
             type="search"
             placeholder="Buscar Productos o Paquetes"
@@ -79,39 +79,27 @@ function Buscador() {
       </Container>
 
       {searched && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '50px', marginTop: '100px' }}>
-
-          <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '50px' }}>
-            {filteredProducts.map((product, index) => (
-              <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
-                <Card.Img style={{ width: '100%' }} variant="top" src='./imagenes/cambalache logo.png' />
-                <Card.Body style={{ textAlign: 'center' }}>
-                  <Card.Title style={{ fontSize: '15px' }}>{product.nombre}</Card.Title>
-                  {/* <Card.Text>
-                      {product.descripcion}
-                    </Card.Text> */}
-                  <Card.Text>${product.precio}</Card.Text>
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
-          <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '50px' }}>
-            {filteredPackage.map((paquete, index) => (
-              <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
-                <Card.Img variant="top" src='./imagenes/cambalache logo.png' />
-                <Card.Body style={{ textAlign: 'center' }}>
-                  <Card.Title style={{ fontSize: '15px' }}>{paquete.nombre}</Card.Title>
-                  {/* <Card.Text>
-                      {paquete.descripcion}
-                    </Card.Text> */}
-                  <Card.Text>${paquete.precio}</Card.Text>
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
+        <div className="d-flex justify-content-center align-items-center flex-wrap mt-5">
+          {filteredProducts.map((product, index) => (
+            <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
+              <Card.Img style={{ width: '100%' }} variant="top" src={product.imagen} />
+              <Card.Body style={{ textAlign: 'center' }}>
+                <Card.Title style={{ fontSize: '15px' }}>{product.nombre}</Card.Title>
+                <Card.Text>${product.precio}</Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+          {filteredPackage.map((paquete, index) => (
+            <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
+              <Card.Img variant="top" src={paquete.imagen} />
+              <Card.Body style={{ textAlign: 'center' }}>
+                <Card.Title style={{ fontSize: '15px' }}>{paquete.nombre}</Card.Title>
+                <Card.Text>${paquete.precio}</Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
         </div>
       )}
-
     </Container>
   );
 }
