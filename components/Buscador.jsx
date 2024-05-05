@@ -191,24 +191,31 @@ function Buscador() {
         <div className=" d-flex justify-content-center align-items-start flex-wrap mt-5">
           {filteredProducts.map((product, index) => (
             <Card key={index} style={{ width: '20rem', margin: '15px', border: 'none' }}>
+
               <a style={{ color: 'black', textDecoration: 'none' }} href="#detalleproducto">
                 <Card.Img variant="top" src={product.image} style={{ height: '15rem', objectFit: 'cover' }} />
                 <Card.Body style={{ textAlign: 'center' }}>
                   <Card.Title style={{ fontSize: '15px' }}>{product.nombre}</Card.Title>
                   <Card.Text>${product.precio}</Card.Text>
+                  <Button variant="primary">Ver más</Button>
                 </Card.Body>
               </a>
+
             </Card>
+
           ))}
           {filteredPackage.map((paquete, index) => (
             <Card key={index} style={{ width: '20rem', margin: '15px', border: 'none' }}>
+
               <a style={{ color: 'black', textDecoration: 'none' }} href="#detalleproducto">
                 <Card.Img variant="top" src={paquete.image} style={{ height: '15rem', objectFit: 'cover' }} />
                 <Card.Body style={{ textAlign: 'center' }}>
                   <Card.Title style={{ fontSize: '15px' }}>{paquete.nombre}</Card.Title>
                   <Card.Text>${paquete.precio}</Card.Text>
+                  <Button variant="primary">Ver más</Button>
                 </Card.Body>
               </a>
+              
             </Card>
           ))}
         </div>
