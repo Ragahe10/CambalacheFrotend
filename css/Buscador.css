@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+s .navbar .nav-link {
+    color: white;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+
+.custom-button {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(233, 233, 233);
+    color: rgb(54, 128, 197);
+    height: 40px;
+
+}
+
+.custom-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.imagen-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+
+}
+
+#section {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.input {
+    width: 250px;
+    height: 40px;
+}
+
+.navbar-collapse.collapse {
+    justify-content: center;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    margin-right: 80%;
+}
+
+.scrollable-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    /* Adjust the value to fit your layout */
+}
+div.prod{
+    margin-top: 100px;
+}
+@media (min-width:300px) and (max-width: 679px) {
+    .form {
+        position: absolute;
+        top: 250px;
+        margin: auto;
+    }
+}
