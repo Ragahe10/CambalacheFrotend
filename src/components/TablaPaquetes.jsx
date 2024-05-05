@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 
 const TablaPaquetes = (props) => {
@@ -12,7 +12,7 @@ const TablaPaquetes = (props) => {
                 return res.json();
             })
             .then((data) => {
-                setPaquetes(data);
+                setPaquetes(data.paquetes);
                 console.log(data);
             });
     },[]);
@@ -37,10 +37,10 @@ const TablaPaquetes = (props) => {
 
                     
                     
-                    //mapeo que genera cada fila con los datos de cada paquete 
+                    {/* //mapeo que genera cada fila con los datos de cada paquete  */}
                     {paquetes.map((paquete) =>(
-                            <tr>
-                                <td>{paquete.id}</td>
+                            <tr key={paquete._id}>
+                                <td>{paquete._id}</td>
                                 <td>{paquete.nombre}</td>
                                 <td>{paquete.descripcion}</td>
                                 <td>{paquete.tipo}</td>
