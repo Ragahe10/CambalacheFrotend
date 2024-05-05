@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "661451e8fac435d4504e0155",
+      "nombre": "Gorra Personalizada",
+      "descripcion": "Gorra Trucker Impresion",
+      "tipo": "card",
+      "precio": 3500,
+      "link": "/imagenes/gorras.jpg"
+
+    },
+    {
+        "_id": "6614532ed789092edc0a310d",
+        "nombre": "Almohadones Personalizados motivo Mundial 2022",
+        "descripcion": "Confeccionados en tropical mecanico Alto: 30cm Ancho: 40cm",
+        "tipo": "gris",
+        "precio": 6000,
+      "link": "/imagenes/almohadon.jpg"
+
+    },
+    {
+        "_id": "66245d088da4f3ab6c3f3a99",
+        "nombre": "Agendas Personalizadas",
+        "descripcion": "Agenda 2024! Personalizala con tu diseño o logo",
+        "tipo": "diseños",
+        "precio": 5000,
+      "link": "/imagenes/agendas.jpg"
+
+    },
+    {
+        "_id": "662464b39936f7bccd72274f",
+        "nombre": "Jarros Térmicos Personalizados",
+        "descripcion": "Tamaño: 8 Cms de Diámetro x 15 Cms de Alto Capacidad: 500Cm3 Podés personalizarlos a tu gusto!",
+        "tipo": "diseño",
+        "precio": 4500,
+      "link": "/imagenes/vaso_termico.jpg"
+
+    }
+]
