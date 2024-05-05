@@ -4,7 +4,6 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import ProtectedRoutes from './routes/ProtectedRoutes'
 import Administracion from './pages/Administracion'
 import Carrito from './pages/Carrito'
-import Detalle from './pages/Detalle'
 import Favorito from './pages/Favorito'
 import Home from './pages/Home'
 import Venta from './pages/Venta'
@@ -12,6 +11,8 @@ import Error404 from './pages/404'
 import NavbarMenu from './components/Navbar'
 import Encabezado from './components/Encabezado'
 import authLogin from './helpers/Login'
+import PagDetalleProducto from './pages/PagDetalleProducto'
+import PagDetallePaquete from './pages/PagDetallePaquete'
 
 function App() {
   //token
@@ -41,8 +42,6 @@ function App() {
     sessionStorage.clear();
   }
 
-  
-
   return (
     <Router>
         <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn}/>
@@ -50,7 +49,8 @@ function App() {
         <Routes>
           <Route path='/Administracion' element={<ProtectedRoutes auth={auth}><Administracion/></ProtectedRoutes>}/>
           <Route path='/Carrito' element={<Carrito/>}/>
-          <Route path='/Detalle' element={<Detalle/>}/>
+          <Route path='/DetalleProducto' element={<PagDetalleProducto/>}/>
+          <Route path='/DetallePaquete' element={<PagDetallePaquete/>}/>
           <Route path='/Favorito' element={<Favorito/>}/>
           <Route path='/' element={<Home/>}/>
           <Route path='/Venta' element={<Venta/>}/>
