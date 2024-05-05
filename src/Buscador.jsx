@@ -79,26 +79,31 @@ function Buscador() {
       </Container>
 
       {searched && (
-        <div className="d-flex justify-content-center align-items-center flex-wrap mt-5">
+        <div className="d-flex justify-content-center align-items-start flex-wrap mt-5">
           {filteredProducts.map((product, index) => (
-            <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
-              <Card.Img style={{ width: '100%' }} variant="top" src={product.imagen} />
-              <Card.Body style={{ textAlign: 'center' }}>
-                <Card.Title style={{ fontSize: '15px' }}>{product.nombre}</Card.Title>
-                <Card.Text>${product.precio}</Card.Text>
-              </Card.Body>
+            <Card key={index} style={{ width: '20rem', margin: '15px', border: 'none' }}>
+              <a style={{ color: 'black', textDecoration: 'none' }} href="#detalleproducto">
+                <Card.Img variant="top" src={product.image} style={{ height: '15rem', objectFit: 'cover' }} />
+                <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Title style={{ fontSize: '15px' }}>{product.nombre}</Card.Title>
+                  <Card.Text>${product.precio}</Card.Text>
+                </Card.Body>
+              </a>
             </Card>
           ))}
           {filteredPackage.map((paquete, index) => (
-            <Card key={index} style={{ width: '15rem', margin: '10px', border: 'none' }}>
-              <Card.Img variant="top" src={paquete.imagen} />
-              <Card.Body style={{ textAlign: 'center' }}>
-                <Card.Title style={{ fontSize: '15px' }}>{paquete.nombre}</Card.Title>
-                <Card.Text>${paquete.precio}</Card.Text>
-              </Card.Body>
+            <Card key={index} style={{ width: '20rem', margin: '15px', border: 'none' }}>
+              <a style={{ color: 'black', textDecoration: 'none' }} href="#detalleproducto">
+                <Card.Img variant="top" src={paquete.image} style={{ height: '15rem', objectFit: 'cover' }} />
+                <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Title style={{ fontSize: '15px' }}>{paquete.nombre}</Card.Title>
+                  <Card.Text>${paquete.precio}</Card.Text>
+                </Card.Body>
+              </a>
             </Card>
           ))}
         </div>
+
       )}
     </Container>
   );
