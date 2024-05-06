@@ -1,0 +1,11 @@
+.cardsProductos{
+    width: auto;
+}
+
+.cardBody{
+    background-color: rgb(rgba(3, 17, 32, 0.836));
+}
+.cardsProductos Img{
+    height: 300px;
+    object-fit: cover;
+}
