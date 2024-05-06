@@ -12,6 +12,7 @@ import Error404 from './pages/404'
 import NavbarMenu from './components/Navbar'
 import Encabezado from './components/Encabezado'
 import authLogin from './helpers/Login'
+import Footer from './components/footer'
 
 function App() {
   //token
@@ -59,7 +60,7 @@ function App() {
           <Route path='/Buscar' element={<Venta/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
-        
+        <Footer/>
       </Router>
   )
 }
