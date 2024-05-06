@@ -30,8 +30,8 @@ const Footer =()=>{
                     <div className="sb__footer-links_div">
                         <h4>Redes Sociales</h4>
                         <div className="Socialmedia">
-                            <p><img src={'../imagenes/logo-facebook.png'}  /><a href="https://www.facebook.com/cambalachedg?_rdc=2&_rdr"></a></p>
-                            <p><img src={'../imagenes/Logo-instagram.png'}  /><a href="https://www.instagram.com/cambalachedg/"></a></p>
+                            <a href="https://www.facebook.com/cambalachedg?_rdc=2&_rdr"><p><img src={'../imagenes/logo-facebook.png'}  /></p></a>
+                            <a href="https://www.instagram.com/cambalachedg/"><p><img src={'../imagenes/Logo-instagram.png'}  /></p></a>
                             
                         </div>
                     </div>
