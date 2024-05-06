@@ -2,28 +2,46 @@ import React from 'react';
 import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap';
 
 const ConfirmacionVenta = ({ carrito, totalVenta, cancelarVenta, confirmarVenta }) => {
+    // Función para calcular el total de la venta
+    const calcularTotalVenta = () => {
+        let total = 0;
+        // Suma el precio de cada producto en el carrito
+        carrito.forEach((item) => {
+            total += item.precio;
+        });
+        return total;
+    };
+
     return (
-        <Container className="py-5" style={{ backgroundColor: '#FCE4EC', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}> {/* Cambia el color de fondo a rosa claro y agrega bordes redondeados y sombra */}
-            <h2 className="text-center mb-5" style={{ color: '#FF69B4' }}>Confirmación de Venta</h2> {/* Cambia el color del texto a rosa brillante */}
+        <Container className="py-5" style={{ backgroundColor: '#E6F7FF', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <h2 className="text-center mb-5" style={{ color: '#0080FF' }}>Confirmación de Venta</h2>
             <Row>
                 <Col md={8} className="mx-auto">
                     <ListGroup variant="flush">
                         {carrito.map((item, index) => (
-                            <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center" style={{ backgroundColor: '#FFF0F5' }}> {/* Cambia el color de fondo de los elementos de la lista a rosa claro */}
-                                <span className="font-weight-bold" style={{ color: '#FF1493' }}>{item.nombre}</span> <span>- ${item.precio}</span> {/* Cambia el color del texto a rosa medio */}
+                            <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center" style={{ backgroundColor: '#D6EAF8' }}>
+                                <span className="font-weight-bold" style={{ color: '#3498DB' }}>{item.nombre}</span> <span>- ${item.precio}</span>
                             </ListGroup.Item>
                         ))}
                     </ListGroup>
-                    <hr className="my-4" style={{ borderTop: '1px solid #FF69B4' }} /> {/* Cambia el color de la línea horizontal a rosa brillante */}
+                    <hr className="my-4" style={{ borderTop: '1px solid #0080FF' }} />
                     <Row>
-                        <Col className="text-right">
-                            <p className="font-weight-bold" style={{ color: '#FF69B4' }}>Total de la venta: ${totalVenta}</p> {/* Cambia el color del texto a rosa brillante */}
+                        <Col>
+                            <p className="font-weight-bold" style={{ color: '#0080FF' }}>Detalles del pedido:</p>
+                            {carrito.map((item, index) => (
+                                <div key={index} className="d-flex justify-content-between align-items-center" style={{ marginBottom: '10px' }}>
+                                    <span>{item.nombre}</span> <span>${item.precio}</span>
+                                </div>
+                            ))}
+                            <hr className="my-4" style={{ borderTop: '1px solid #0080FF' }} />
+                            {/* Mostrar el total de la venta calculado */}
+                            <p className="font-weight-bold" style={{ color: '#0080FF' }}>Total de la venta: ${calcularTotalVenta()}</p>
                         </Col>
                     </Row>
                     <Row className="mt-4">
                         <Col className="text-center">
-                            <Button variant="pink" onClick={confirmarVenta} className="mr-3" style={{ backgroundColor: '#FF69B4', borderColor: '#FF69B4' }}>Confirmar Venta</Button> {/* Cambia el color del botón a rosa brillante */}
-                            <Button variant="rose" onClick={cancelarVenta} className="ml-3" style={{ backgroundColor: '#FFC0CB', borderColor: '#FFC0CB' }}>Cancelar Venta</Button> {/* Cambia el color del botón a rosa claro */}
+                            <Button variant="info" onClick={confirmarVenta} className="mr-3" style={{ backgroundColor: '#0080FF', borderColor: '#0080FF' }}>Confirmar Venta</Button>
+                            <Button variant="primary" onClick={cancelarVenta} className="ml-3" style={{ backgroundColor: '#85C1E9', borderColor: '#85C1E9' }}>Cancelar Venta</Button>
                         </Col>
                     </Row>
                 </Col>

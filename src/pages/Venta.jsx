@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ConfirmacionVenta from '../components/ventas';
 import { useNavigate } from 'react-router-dom'; 
 
+
 const Venta = () => {
     const [carrito, setCarrito] = useState([]);
     const [totalVenta, setTotalVenta] = useState(0);

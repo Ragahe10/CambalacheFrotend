@@ -16,6 +16,9 @@ import Encabezado from './components/Encabezado'
 import authLogin from './helpers/Login'
 import InstruccionesPago from './components/instruccionesPago'
 
+
+
+
 function App() {
   //token
   const [token, setToken] = useState('');
@@ -58,6 +61,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/Venta' element={<Venta/>}/>
           <Route path='/Buscar' element={<Venta/>}/>
+
           <Route path='/instruccionesPago' element={<InstruccionesPago/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
