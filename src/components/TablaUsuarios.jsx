@@ -30,18 +30,18 @@ const TablaUsuarios = ({token}) => {
                     <Accordion.Item key={usuario.uid} eventKey={usuario.uid}>
                         <Accordion.Header><i className="bi bi-person-vcard-fill fs-1 text-primary me-5"></i>{usuario.correo}</Accordion.Header>
                         <Accordion.Body className=''>
-                                <article className='m-auto' style={{maxWidth:"300px"}}>
+                                <article className='mx-auto my-2' style={{maxWidth:"300px"}}>
                                     <p><strong>Nombre: </strong>{usuario.nombre}</p>
                                     <p><strong>Correo: </strong>{usuario.correo}</p>
                                     <p><strong>Rol: </strong>{usuario.rol}</p>
                                     <p><strong>Estado: </strong>{(usuario.estado) ? "Activo" : "Desactivo" }</p>
-                                    <div className='d-flex justify-content-end'>
+                                    {/* <div className='d-flex justify-content-end'>
                                         <button className='btn btn-outline-primary' 
                                         onClick={() => {
                                             setUsuario(usuario);
                                             setEditando(true);
                                             }}>Editar</button>
-                                    </div>
+                                    </div> */}
                                 </article>
                         </Accordion.Body>
                     </Accordion.Item>
