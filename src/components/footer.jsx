@@ -1,8 +1,5 @@
 import React from "react"
 import '../css/footer.css'
-import Facebook from '../../imagenes/logo-facebook.png'
-import Instagram from '../../imagenes/Logo-instagram.png'
-import logoFooter from '../../imagenes/Logo-cambalache.jpg'
 
 
 const Footer =()=>{
@@ -27,14 +24,14 @@ const Footer =()=>{
                     </div>
                     
                     <div className="sb__footer-links_div">
-                      <img className="logoFooter" src={logoFooter} />
+                      <img className="logoFooter" src={"../imagenes/Logo-cambalache.jpg"} />
 
                     </div>
                     <div className="sb__footer-links_div">
                         <h4>Redes Sociales</h4>
                         <div className="Socialmedia">
-                            <p><img src={Facebook}  /><a href="https://www.facebook.com/cambalachedg?_rdc=2&_rdr"></a></p>
-                            <p><img src={Instagram}  /><a href="https://www.instagram.com/cambalachedg/"></a></p>
+                            <p><img src={'../imagenes/logo-facebook.png'}  /><a href="https://www.facebook.com/cambalachedg?_rdc=2&_rdr"></a></p>
+                            <p><img src={'../imagenes/Logo-instagram.png'}  /><a href="https://www.instagram.com/cambalachedg/"></a></p>
                             
                         </div>
                     </div>
