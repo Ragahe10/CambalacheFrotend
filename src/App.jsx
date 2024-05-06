@@ -16,19 +16,22 @@ import authLogin from './helpers/Login'
 function App() {
   //token
   const [token, setToken] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   useEffect(() => {
     const value = (sessionStorage.getItem('token'));
     if (value) {
       setToken(JSON.parse(value));
     }
   }, []);
+
   //logueo de usuario
   const [auth, setAuth] = useState(sessionStorage.getItem('usuario')? true : false);
   const LogIn = async (userData) => {
-    try{
       const response = await authLogin (userData);
       if(!response.usuario){
+        return (response.msg);
         alert(response.msg);
+
       }else{
         sessionStorage.setItem('token',JSON.stringify(response.token));
         sessionStorage.setItem('usuario',JSON.stringify(response.usuario.nombre));
@@ -37,9 +40,6 @@ function App() {
         setToken(response.token);
         setAuth(true)
       }
-    } catch (error){
-      console.log(error);
-    }
   }
   const logOut = () => {
     setAuth(false)
@@ -47,7 +47,7 @@ function App() {
   }
   return (
     <Router>
-        <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn}/>
+        <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
         <NavbarMenu LogOut={logOut} auth={auth}/>
         <Routes>
           <Route path='/Administracion' element={<ProtectedRoutes auth={auth}><Administracion token={token}/></ProtectedRoutes>}/>
@@ -59,6 +59,7 @@ function App() {
           <Route path='/Buscar' element={<Venta/>}/>
           <Route path='*' element={<Error404/>}/>
         </Routes>
+        
       </Router>
   )
 }

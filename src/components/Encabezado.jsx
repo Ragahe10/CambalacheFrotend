@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Form, Button, Modal, Nav } from 'react-bootstrap'
 import '../css/Encabezado.css'
 import LogueoModal from './login'; 
 import RegistroModal from './registro';
 
-const Encabezado = ({Buscar, auth, LogOut, LogIn}) => {
+const Encabezado = ({Buscar, auth, LogOut, LogIn, errorMessage, setErrorMessage}) => {
   const [searchInput, setSearchInput] = useState('');
   const [showModalLog, setShowModalLog] = useState(false);
   const [showModalReg, setShowModalReg] = useState(false);
@@ -33,16 +33,20 @@ const Encabezado = ({Buscar, auth, LogOut, LogIn}) => {
             <img src="/imagenes/logo.png" alt="Imagen logo del negocio" width='340px'/>
         </section>
         <section className='sesion d-flex flex-row justify-content-center align-items-center' width="340px">
-          <a className='nav-link' onClick={() => auth ? LogOut() : handleShowLog()}>{auth ? 'Cerrar Sesión' : 'Iniciar Sesión'}</a>
-          <LogueoModal onSubmit={LogIn} showModal={showModalLog} setShowModal={setShowModalLog}/>
-          {!auth && (
-           <>
-            <div className="vertical-hr mx-2"></div>
-            <a className='nav-link' onClick={handleShowReg}>Registrarse</a>
-            <RegistroModal LogIn={LogIn} showModal={showModalReg} setShowModal={setShowModalReg}/>
-           </>
-          )}
-
+          <Nav>
+            <Nav.Link className='text-dark' onClick={() => auth ? LogOut() : handleShowLog()}>{auth ? 'Cerrar Sesión' : 'Iniciar Sesión'}</Nav.Link>
+            <LogueoModal onSubmit={LogIn} showModal={showModalLog} setShowModal={setShowModalLog} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
+          </Nav>
+            {!auth && (
+              <>
+                <div className="vertical-hr mx-2"></div>
+                <Nav>
+                  <Nav.Link className='text-dark' onClick={handleShowReg}>Registrarse</Nav.Link>
+                  <RegistroModal LogIn={LogIn} showModal={showModalReg} setShowModal={setShowModalReg} />
+                </Nav>
+              </>
+            )}
+           
         </section>
     </section>
   )
