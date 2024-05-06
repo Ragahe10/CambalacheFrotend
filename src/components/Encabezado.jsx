@@ -30,7 +30,7 @@ const Encabezado = ({Buscar, auth, LogOut, LogIn, errorMessage, setErrorMessage}
           </Form>
         </section>
         <section className='logo'>
-            <img src="/imagenes/logo.png" alt="Imagen logo del negocio" width='340px'/>
+            <img src="./imagenes/logo.png" alt="Imagen logo del negocio" width='340px'/>
         </section>
         <section className='sesion d-flex flex-row justify-content-center align-items-center' width="340px">
           <Nav>
