@@ -1,0 +1,15 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto
+} 
+  .image-container img {
+    padding: 50px 6px 50px 6px;
+    max-width: 40%;
+  }
+  @media (max-width: 768px) {
+    .image-container img {
+      display: none;
+    }
+  }
