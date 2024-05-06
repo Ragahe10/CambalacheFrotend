@@ -12,6 +12,10 @@
   "dependencies": {
     "boxicons": "^2.1.4",
     "react": "^18.2.0",
+<<<<<<< HEAD
+=======
+    "react-bootstrap": "^2.10.2",
+>>>>>>> f96de62d5359f18fee0e27e6a19016ac5fdb9082
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0"
   },
