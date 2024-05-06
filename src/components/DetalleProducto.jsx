@@ -20,6 +20,8 @@ const DetalleProducto = ({ producto }) => {
         }
     };
 
+    console.log(producto);
+
 
     return (
         <Container className="detalle-del-producto-container">
@@ -29,15 +31,26 @@ const DetalleProducto = ({ producto }) => {
                     <h1 className='titulo-responsive d-xl-none'>{producto.nombre}</h1>
                     <Carousel fade>
                         <Carousel.Item>
-                            <img src={producto.imagenes} alt="First slide" />
+                            <img src={producto.image1} alt="First slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={producto.imagenes} alt="Second slide" />
+                            <img src={producto.image2} alt="Second slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={producto.imagenes} alt="Third slide" />
+                            <img src={producto.image3} alt="Third slide" />
                         </Carousel.Item>
                     </Carousel>
+                    {/* <div>
+                        <Carousel fade>
+                            {producto && producto.imagenes && producto.imagenes.map((imagen, index) => (
+                                <Carousel.Item key={index}>
+                                    <div>
+                                        <img src={imagen} alt={`Image ${index + 1}`} />
+                                    </div>
+                                </Carousel.Item>
+                            ))}
+                        </Carousel>
+                    </div> */}
                 </Col>
 
                 <Col xs={12} md={12} lg={6} className="columna-datos">

@@ -19,6 +19,7 @@ const DetallePaquete = ({ paquete }) => {
             setCantidad(cantidad + 1);
         }
     };
+// console.log(paquete);
 
 
     return (
@@ -29,13 +30,13 @@ const DetallePaquete = ({ paquete }) => {
                     <h1 className='titulo-responsive d-xl-none'>{paquete.nombre}</h1>
                     <Carousel fade>
                         <Carousel.Item>
-                            <img src={paquete.producto.imagenes} alt="First slide" />
+                            <img src={paquete.image1} alt="First slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={paquete.producto.imagenes} alt="Second slide" />
+                            <img src={paquete.image2} alt="Second slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={paquete.producto.imagenes} alt="Third slide" />
+                            <img src={paquete.image3} alt="Third slide" />
                         </Carousel.Item>
                     </Carousel>
                 </Col>

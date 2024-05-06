@@ -104,20 +104,11 @@
     }
 }
 
-/* @media (width: 1024px) {
-
-    .titulo-responsive {
-        font-size: 3em;
-        font-weight: 500;
-        margin-bottom: 15px;
-    }
-} */
-
 @media (min-width: 1200px) {
 
     .carousel-item img {
         height: 500px;
-        min-height: 800px;
+        min-height: 700px;
         object-fit: contain;
     }
 
