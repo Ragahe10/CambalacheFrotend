@@ -8,7 +8,7 @@ const Slider = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./imagenes/slider-1.bmp"
+          src="../imagenes/slider-1.bmp"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -19,7 +19,7 @@ const Slider = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./imagenes/slider-2.bmp"
+          src="../imagenes/slider-2.bmp"
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -30,7 +30,7 @@ const Slider = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="./imagenes/slider-3.bmp"
+          src="../imagenes/slider-3.bmp"
           alt="Third slide"
         />
         <Carousel.Caption>
