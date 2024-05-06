@@ -7,12 +7,15 @@ import TablaTiposCategorias from '../components/TablaTiposCategorias';
 import TablaUsuarios from '../components/TablaUsuarios';
 import '../css/administracion.css'
 import ProductoUpdate from './ProductoUpdate';
+import ProductoAdd from './ProductoAdd';
+import { Button } from 'react-bootstrap';
 
 const Administracion = ({token}) => {
     const [key, setKey] = useState('productos');
     const [productos, setProductos] = useState([]);
     const [tipos, setTipos] = useState([]);
     const [editProducto, setEditProducto] = useState({});
+    const [addProducto, setAddProducto] = useState(false);
 
     const urlProd = 'https://cambalachebackend.onrender.com/api/producto';
     const urlTipos = 'https://cambalachebackend.onrender.com/api/tipo';
@@ -53,7 +56,7 @@ const Administracion = ({token}) => {
             className="mb-3"
             >
                 <Tab eventKey="productos" title="Productos">
-                    <Productos productos={productos} setEditProducto={setEditProducto} />
+                    <Productos productos={productos} setEditProducto={setEditProducto} token={token} />
                 </Tab>
                 {/* <Tab eventKey="paquetes" title="Paquetes">
                     <TablaPaquetes />
@@ -68,6 +71,16 @@ const Administracion = ({token}) => {
                     <TablaUsuarios token={token} />
                 </Tab> */}
             </Tabs>)}
+            {(!addProducto && key==='productos') ? (
+                <div className='my-3 d-flex justify-content-center'>
+                    <button className='btn btn-outline-success mx-auto' onClick={()=>setAddProducto(true)}>
+                        <i className="bi bi-plus-lg me-1"></i>
+                        Agregar Producto
+                    </button>
+                </div>
+            ):(addProducto && key ==='productos')&&(
+                <ProductoAdd productos={productos} token={token} tipos={tipos} setAddProducto={setAddProducto}/>
+            )}
         </section>
     );
 
