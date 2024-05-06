@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Spinner } from 'react-bootstrap';
 import UserSignIn from '../helpers/RegistrarUsuario'
 
 const RegistroModal = ({ onSubmit, showModal, setShowModal, LogIn }) => {
@@ -11,6 +11,7 @@ const RegistroModal = ({ onSubmit, showModal, setShowModal, LogIn }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleClose = () => {
     setShowModal(false);
@@ -23,7 +24,7 @@ const RegistroModal = ({ onSubmit, showModal, setShowModal, LogIn }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true); // Activa el spinner de carga
     // Validar que las contraseñas coincidan
     if (password !== confirmPassword) {
       setPasswordError('Las contraseñas no coinciden');
@@ -121,7 +122,7 @@ const RegistroModal = ({ onSubmit, showModal, setShowModal, LogIn }) => {
 
             <hr />
             <Button variant="primary" type="submit" className='w-100'>
-              Registrarse
+              {loading ? <Spinner animation="border" size="sm" /> : 'Registrarse'}
             </Button>
           </Form>
         </Modal.Body>
