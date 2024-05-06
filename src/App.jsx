@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './css/App.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import ProtectedRoutes from './routes/ProtectedRoutes'
@@ -17,6 +17,12 @@ function App() {
   //token
   const [token, setToken] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  useEffect(() => {
+    const value = (sessionStorage.getItem('token'));
+    if (value) {
+      setToken(JSON.parse(value));
+    }
+  }, []);
 
   //logueo de usuario
   const [auth, setAuth] = useState(sessionStorage.getItem('usuario')? true : false);
@@ -24,12 +30,14 @@ function App() {
       const response = await authLogin (userData);
       if(!response.usuario){
         return (response.msg);
+        alert(response.msg);
+
       }else{
-        setToken(response.token);
         sessionStorage.setItem('token',JSON.stringify(response.token));
         sessionStorage.setItem('usuario',JSON.stringify(response.usuario.nombre));
         sessionStorage.setItem('rol',JSON.stringify(response.usuario.rol));
         sessionStorage.setItem('id',JSON.stringify(response.usuario.uid));
+        setToken(response.token);
         setAuth(true)
       }
   }
@@ -37,15 +45,12 @@ function App() {
     setAuth(false)
     sessionStorage.clear();
   }
-
-  
-
   return (
     <Router>
         <Encabezado auth={auth} LogOut={logOut} LogIn={LogIn} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
         <NavbarMenu LogOut={logOut} auth={auth}/>
         <Routes>
-          <Route path='/Administracion' element={<ProtectedRoutes auth={auth}><Administracion/></ProtectedRoutes>}/>
+          <Route path='/Administracion' element={<ProtectedRoutes auth={auth}><Administracion token={token}/></ProtectedRoutes>}/>
           <Route path='/Carrito' element={<Carrito/>}/>
           <Route path='/Detalle' element={<Detalle/>}/>
           <Route path='/Favorito' element={<Favorito/>}/>
