@@ -6,12 +6,16 @@ import Productos from '../components/Productos';
 import TablaTiposCategorias from '../components/TablaTiposCategorias';
 import TablaUsuarios from '../components/TablaUsuarios';
 import '../css/administracion.css'
+import ProductoUpdate from './ProductoUpdate';
 
 const Administracion = ({token}) => {
     const [key, setKey] = useState('productos');
     const [productos, setProductos] = useState([]);
+    const [tipos, setTipos] = useState([]);
+    const [editProducto, setEditProducto] = useState({});
 
     const urlProd = 'https://cambalachebackend.onrender.com/api/producto';
+    const urlTipos = 'https://cambalachebackend.onrender.com/api/tipo';
     //Para cargar el array con cada producto separado, lo hace solo cada vez que renderiza el componente
     useEffect(() => {
         fetch(urlProd,{
@@ -26,9 +30,22 @@ const Administracion = ({token}) => {
                 console.log(data);
             });
     },[]);
+    useEffect(() => {
+        fetch(urlTipos)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setTipos(data.tipos);
+                console.log(data);
+            });
+    },[]);
 
     return (
         <section className='p-3'>
+            { (editProducto.nombre) ? (
+                <ProductoUpdate producto={editProducto} productos={productos} setEditProducto={setEditProducto} tipos={tipos} token={token} />
+            ):(
             <Tabs
             id="controlled-tab-example"
             activeKey={key}
@@ -36,7 +53,7 @@ const Administracion = ({token}) => {
             className="mb-3"
             >
                 <Tab eventKey="productos" title="Productos">
-                    <Productos productos={productos} />
+                    <Productos productos={productos} setEditProducto={setEditProducto} />
                 </Tab>
                 {/* <Tab eventKey="paquetes" title="Paquetes">
                     <TablaPaquetes />
@@ -50,7 +67,7 @@ const Administracion = ({token}) => {
                 <Tab eventKey="usuarios" title="Usuarios">
                     <TablaUsuarios token={token} />
                 </Tab> */}
-            </Tabs>
+            </Tabs>)}
         </section>
     );
 

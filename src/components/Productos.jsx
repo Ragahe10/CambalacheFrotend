@@ -28,11 +28,14 @@ const Productos = ({productos, setEditProducto}) => {
                                     <p><strong>Estado: </strong>{(producto.activo) ? "Activado" : "Desactivado" }</p>
                                     <hr />
                                     <div className='d-flex justify-content-end'>
-                                        {/* <button className='btn btn-outline-primary' 
-                                        onClick={() => {
-                                            setUsuario(usuario);
-                                            setEditando(true);
-                                            }}>Editar</button> */}
+                                        <button className='btn btn-outline-primary me-2' onClick={()=>setEditProducto(producto)}>
+                                            <i className="bi bi-pencil-square me-1"></i>
+                                            Editar
+                                        </button>
+                                        <button className='btn btn-outline-danger'>
+                                            <i className="bi bi-trash3 me-1"></i>
+                                            Borrar
+                                        </button>
                                     </div>
                                 </article>
                         </Accordion.Body>
