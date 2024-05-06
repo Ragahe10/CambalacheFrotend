@@ -2,9 +2,16 @@ import React from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+import "../css/cardsHome.css";
 
 function CardsPaquetes() {
   const [paquetes, setPaquetes] = useState([]);
+  const [selectedPaqueteId, setSelectedPaqueteId] = useState("");
+
+  const handleSelectPaquete = (id) => {
+    setSelectedPaqueteId(id);
+  };
 
   useEffect(() => {
     fetch("https://cambalachebackend.onrender.com/api/paquete")
@@ -19,22 +26,35 @@ function CardsPaquetes() {
 
   return (
     <div>
-      <Row xs={1} sm={2} md={4} className="g-4">
-        {paquetes.map((paquete, index) => (
-          <Col key={index}>
-            <Card style={{ margin: "10px" }}>
+      <Row xs={1} sm={2} md={4} lg={5} className="g-4">
+        {paquetes.map((paquete) => (
+          <Col key={paquete.nombre}>
+            <Card className="cardsProductos" style={{ margin: "10px" }}>
               <Card.Img
                 variant="top"
                 src={paquete.image || "/imagenes/paq_cumple.jpg"}
                 alt={paquete.nombre}
+                style={{margin: "auto",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center center",
+                backgroundSize: "cover",}}
               />
-              <Card.Body>
-                <Card.Title>{paquete.nombre}</Card.Title>
-                <Card.Text>Precio: {paquete.precio}</Card.Text>
-                <Button variant="primary">Ver más</Button>
+              <Card.Body style={{ backgroundColor: "rgba(86, 189, 236, 0.699)", textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Card.Title style={{textTransform: "uppercase"}}>
+                {paquete.nombre.length > 24 ? paquete.nombre.substring(0, 24) + "..." : paquete.nombre}</Card.Title>
+                <Card.Text style={{ color: "rgba(3, 17, 32, 0.836)", fontWeight: "bold", fontSize: "1.1em"}}>$ {paquete.precio}</Card.Text>
+                <Link to={'/detalle-paquete/${paquete.id}'}>
+                  <Button
+                    onClick={() => handleSelectPaquete(paquete.id)}
+                    style={{backgroundColor: "white", color: "black",  width: "100%", textAlign: "center" }}
+                  >
+                    Ver más
+                  </Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
+         
         ))}
       </Row>
     </div>
